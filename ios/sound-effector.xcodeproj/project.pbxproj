@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA684262C19CB885A7BABC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6840D64DB9EEB21286FAC4 /* AppDelegate.swift */; };
+		BA6842702694875A5BC8C542 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA684B6D9AC66B12DDDE7ED4 /* Info.plist */; };
+		BA6842733DDE17DDBE4AB598 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA684BE7DE63018D74EA6B97 /* Info.plist */; };
+		BA6842E4E32E78AB59B95C44 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA684B09AE691ED5AC75C63F /* Info.plist */; };
+		BA68451E88A5E0E025F3DA7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA684BEB1A5CEB0C1AA29195 /* ViewController.swift */; };
+		BA6846E64F42250BB433DDAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA684A40C516C13797C1C978 /* Main.storyboard */; };
+		BA6847AE3C55C2B8A36FEBDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA684F0D8D5497540E17C9B6 /* LaunchScreen.storyboard */; };
+		BA6849B42AB7ECFAB001B608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA68446EC03D317AE3055F60 /* Assets.xcassets */; };
+		BA684A072B00526A9B3ABF00 /* SoundEffectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68445CF6FC3A969121C3B5 /* SoundEffectTableViewCell.swift */; };
+		BA684A3A2B062CC58CC97D8D /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68488D36A8B7BD57EB35EE /* SoundEffect.swift */; };
+		BA684C77655266AB198CD988 /* sound_effectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68491A2495DE42BF59421C /* sound_effectorTests.swift */; };
+		BA684D794761B71C231E54B7 /* sound_effectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6843F49BC54BEFB8C8D360 /* sound_effectorUITests.swift */; };
+		BA684FD3FC308135F64CFD9E /* sound_effector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA6846C493281487DD979BF8 /* sound_effector.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA68421993E0CC421D640E2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA684082338ED8D8FEA6EE7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA68450B2F9B562FFEE2DF9F;
+			remoteInfo = "sound-effector";
+		};
+		BA684D041B5C0352E69E4E8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA684082338ED8D8FEA6EE7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA68450B2F9B562FFEE2DF9F;
+			remoteInfo = "sound-effector";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BA68408917F9B0CA1AD4729C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BA6840D64DB9EEB21286FAC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA6843F49BC54BEFB8C8D360 /* sound_effectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sound_effectorUITests.swift; sourceTree = "<group>"; };
+		BA68445CF6FC3A969121C3B5 /* SoundEffectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffectTableViewCell.swift; sourceTree = "<group>"; };
+		BA68446EC03D317AE3055F60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA68488D36A8B7BD57EB35EE /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
+		BA68491A2495DE42BF59421C /* sound_effectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sound_effectorTests.swift; sourceTree = "<group>"; };
+		BA684A24E5BFF249AE3B8F8E /* sound-effectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sound-effectorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA684B09AE691ED5AC75C63F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		BA684B6D9AC66B12DDDE7ED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		BA684BE7DE63018D74EA6B97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		BA684BEB1A5CEB0C1AA29195 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA684DE6D9504484E4CD4556 /* sound_effector.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sound_effector.xcdatamodel; sourceTree = "<group>"; };
+		BA684F32B0806AE87C6169C9 /* sound-effector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sound-effector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA684F5368CC6A9C523C66F2 /* sound-effectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sound-effectorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA684F8FF9A15C3B44EE2AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA684541C0FE090A1428A90E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA68497322098A5BC7C905CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA684CFDFBEB3B0DC1D6EDAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA6841425C7BBE92DAD5B4BD /* sound-effectorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BA684BE7DE63018D74EA6B97 /* Info.plist */,
+				BA6843F49BC54BEFB8C8D360 /* sound_effectorUITests.swift */,
+			);
+			path = "sound-effectorUITests";
+			sourceTree = "<group>";
+		};
+		BA6845FA8F186EB67A6D5867 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA684F32B0806AE87C6169C9 /* sound-effector.app */,
+				BA684A24E5BFF249AE3B8F8E /* sound-effectorTests.xctest */,
+				BA684F5368CC6A9C523C66F2 /* sound-effectorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA6848AFDC52F59A8AF9A572 /* sound-effectorTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA684B6D9AC66B12DDDE7ED4 /* Info.plist */,
+				BA68491A2495DE42BF59421C /* sound_effectorTests.swift */,
+			);
+			path = "sound-effectorTests";
+			sourceTree = "<group>";
+		};
+		BA68496AA2DC8C95891FCD49 = {
+			isa = PBXGroup;
+			children = (
+				BA6845FA8F186EB67A6D5867 /* Products */,
+				BA684CA464D550002D4D03E2 /* sound-effector */,
+				BA6848AFDC52F59A8AF9A572 /* sound-effectorTests */,
+				BA6841425C7BBE92DAD5B4BD /* sound-effectorUITests */,
+			);
+			sourceTree = "<group>";
+		};
+		BA684CA464D550002D4D03E2 /* sound-effector */ = {
+			isa = PBXGroup;
+			children = (
+				BA684B09AE691ED5AC75C63F /* Info.plist */,
+				BA68446EC03D317AE3055F60 /* Assets.xcassets */,
+				BA684F0D8D5497540E17C9B6 /* LaunchScreen.storyboard */,
+				BA6840D64DB9EEB21286FAC4 /* AppDelegate.swift */,
+				BA6846C493281487DD979BF8 /* sound_effector.xcdatamodeld */,
+				BA684A40C516C13797C1C978 /* Main.storyboard */,
+				BA684BEB1A5CEB0C1AA29195 /* ViewController.swift */,
+				BA68445CF6FC3A969121C3B5 /* SoundEffectTableViewCell.swift */,
+				BA68488D36A8B7BD57EB35EE /* SoundEffect.swift */,
+			);
+			path = "sound-effector";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA68450B2F9B562FFEE2DF9F /* sound-effector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA68477ED689FAA4304C0D03 /* Build configuration list for PBXNativeTarget "sound-effector" */;
+			buildPhases = (
+				BA684836522B8A5BD828E249 /* Sources */,
+				BA68497322098A5BC7C905CD /* Frameworks */,
+				BA6847D192896EF577AA498B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sound-effector";
+			productName = "sound-effector";
+			productReference = BA684F32B0806AE87C6169C9 /* sound-effector.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA6845165583236B6AC533FC /* sound-effectorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA684DE38EA970C3EBB88F97 /* Build configuration list for PBXNativeTarget "sound-effectorTests" */;
+			buildPhases = (
+				BA6847FC680245EBBE923D60 /* Sources */,
+				BA684CFDFBEB3B0DC1D6EDAA /* Frameworks */,
+				BA68475382CB3BF0BCDCA36B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA68415906A215803CD7EDE2 /* PBXTargetDependency */,
+			);
+			name = "sound-effectorTests";
+			productName = "sound-effectorTests";
+			productReference = BA684A24E5BFF249AE3B8F8E /* sound-effectorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BA684DC295FDCD088A6DFA62 /* sound-effectorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA68449D3EE24BB2E8B9900B /* Build configuration list for PBXNativeTarget "sound-effectorUITests" */;
+			buildPhases = (
+				BA6849BB65AB536792D9C48D /* Sources */,
+				BA684541C0FE090A1428A90E /* Frameworks */,
+				BA6843383AA361EFE6C18EB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA6845CD115C37D032716F96 /* PBXTargetDependency */,
+			);
+			name = "sound-effectorUITests";
+			productName = "sound-effectorUITests";
+			productReference = BA684F5368CC6A9C523C66F2 /* sound-effectorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA684082338ED8D8FEA6EE7C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				ORGANIZATIONNAME = "Jaesuk Hwang";
+				TargetAttributes = {
+					BA68450B2F9B562FFEE2DF9F = {
+						DevelopmentTeam = HQ63PPVRC3;
+					};
+				};
+			};
+			buildConfigurationList = BA684C993DDCFB31275DDE3F /* Build configuration list for PBXProject "sound-effector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BA68496AA2DC8C95891FCD49;
+			productRefGroup = BA6845FA8F186EB67A6D5867 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA68450B2F9B562FFEE2DF9F /* sound-effector */,
+				BA6845165583236B6AC533FC /* sound-effectorTests */,
+				BA684DC295FDCD088A6DFA62 /* sound-effectorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA6843383AA361EFE6C18EB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA6842733DDE17DDBE4AB598 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA68475382CB3BF0BCDCA36B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA6842702694875A5BC8C542 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA6847D192896EF577AA498B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA6842E4E32E78AB59B95C44 /* Info.plist in Resources */,
+				BA6849B42AB7ECFAB001B608 /* Assets.xcassets in Resources */,
+				BA6847AE3C55C2B8A36FEBDB /* LaunchScreen.storyboard in Resources */,
+				BA6846E64F42250BB433DDAC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA6847FC680245EBBE923D60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA684C77655266AB198CD988 /* sound_effectorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA684836522B8A5BD828E249 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA684262C19CB885A7BABC49 /* AppDelegate.swift in Sources */,
+				BA684FD3FC308135F64CFD9E /* sound_effector.xcdatamodeld in Sources */,
+				BA68451E88A5E0E025F3DA7E /* ViewController.swift in Sources */,
+				BA684A072B00526A9B3ABF00 /* SoundEffectTableViewCell.swift in Sources */,
+				BA684A3A2B062CC58CC97D8D /* SoundEffect.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA6849BB65AB536792D9C48D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA684D794761B71C231E54B7 /* sound_effectorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA68415906A215803CD7EDE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA68450B2F9B562FFEE2DF9F /* sound-effector */;
+			targetProxy = BA68421993E0CC421D640E2E /* PBXContainerItemProxy */;
+		};
+		BA6845CD115C37D032716F96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA68450B2F9B562FFEE2DF9F /* sound-effector */;
+			targetProxy = BA684D041B5C0352E69E4E8E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BA684A40C516C13797C1C978 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA684F8FF9A15C3B44EE2AF9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BA684F0D8D5497540E17C9B6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA68408917F9B0CA1AD4729C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA68429ED024E80C41081E3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sound-effector.app/sound-effector";
+				INFOPLIST_FILE = "sound-effectorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jaesukhwang.sound-effectorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+		BA6842DC9AECC28C01225A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "sound-effector/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jaesukhwang.sound-effector";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		BA684499F894B6334EE629FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "sound-effector/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jaesukhwang.sound-effector";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		BA6845C2D525A191A7997D84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sound-effector.app/sound-effector";
+				INFOPLIST_FILE = "sound-effectorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jaesukhwang.sound-effectorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		BA68480D386F48F4372152B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sound-effector.app/sound-effector";
+				INFOPLIST_FILE = "sound-effectorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jaesukhwang.sound-effectorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+		BA684A60BEF03844B9BE30CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA684DFC00F42164AB3E9BE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA684E16DC3D1C1C2F9C81FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sound-effector.app/sound-effector";
+				INFOPLIST_FILE = "sound-effectorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jaesukhwang.sound-effectorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA68449D3EE24BB2E8B9900B /* Build configuration list for PBXNativeTarget "sound-effectorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA6845C2D525A191A7997D84 /* Debug */,
+				BA68480D386F48F4372152B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA68477ED689FAA4304C0D03 /* Build configuration list for PBXNativeTarget "sound-effector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA684499F894B6334EE629FF /* Debug */,
+				BA6842DC9AECC28C01225A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA684C993DDCFB31275DDE3F /* Build configuration list for PBXProject "sound-effector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA684DFC00F42164AB3E9BE8 /* Debug */,
+				BA684A60BEF03844B9BE30CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA684DE38EA970C3EBB88F97 /* Build configuration list for PBXNativeTarget "sound-effectorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA684E16DC3D1C1C2F9C81FB /* Debug */,
+				BA68429ED024E80C41081E3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BA6846C493281487DD979BF8 /* sound_effector.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BA684DE6D9504484E4CD4556 /* sound_effector.xcdatamodel */,
+			);
+			currentVersion = BA684DE6D9504484E4CD4556 /* sound_effector.xcdatamodel */;
+			path = sound_effector.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BA684082338ED8D8FEA6EE7C /* Project object */;
+}
