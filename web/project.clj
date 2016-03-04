@@ -1,0 +1,26 @@
+(defproject sound-effector "0.1.0"
+  :description "Sound Effector"
+  :url "https://github.com/Lion-Hwang/sound-effector"
+  :license {:name "Eclipse Public License"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/java.jdbc "0.4.2"]
+                 [org.postgresql/postgresql "9.4.1208"]
+                 [ring/ring-jetty-adapter "1.4.0"]
+                 [ring/ring-defaults "0.1.5"]
+                 [ring/ring-json "0.4.0"]
+                 [compojure "1.4.0"]
+                 [hiccup "1.0.5"]
+                 [commons-validator/commons-validator "1.5.0"]]
+  :main ^:skip-aot sound-effector.web
+  :uberjar-name "sound-effector-standalone.jar"
+  :plugins [[lein-ring "0.9.7"]
+            [lein-bower "0.5.1"]]
+  :ring {:handler sound-effector.web/application
+         :init    sound-effector.models.schema/migrate}
+  :profiles {:dev     {:dependencies [[javax.servlet/servlet-api "2.5"]
+                                      [ring-mock "0.1.5"]]}
+             :uberjar {:aot :all}}
+  :bower {:directory    "resources/public/lib"
+          :dependencies [[bootstrap "3.3.6"]
+                         [font-awesome "4.5.0"]]})
