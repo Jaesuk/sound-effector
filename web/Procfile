@@ -1,1 +1,1 @@
-web: java $JVM_OPTS -jar target/sound-effector-standalone.jar
+web: java $JVM_OPTS -cp target/sound-effector-standalone.jar clojure.main -m sound-effector.web

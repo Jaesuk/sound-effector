@@ -1,0 +1,8 @@
+{
+  "name": "sound-effector",
+  "description": "Sound Effector",
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "font-awesome": "4.5.0"
+  }
+}
