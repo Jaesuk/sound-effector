@@ -12,7 +12,7 @@
 
 (def url-validator (UrlValidator. (into-array ["http" "https"])))
 
-(defn index []
+(defn show-list []
   (view/index (model/all)))
 
 (defn create [title url]
@@ -26,6 +26,7 @@
   (ring-response/redirect "/sound-effects"))
 
 (defroutes routes
-           (GET "/sound-effects" [] (index))
+           (GET "/" [] (ring-response/redirect "/sound-effects"))
+           (GET "/sound-effects" [] (show-list))
            (POST "/sound-effects" [title url] (create title url))
            (DELETE "/sound-effects/:id" [id :<< as-int] (delete id)))
