@@ -24,11 +24,11 @@
                   (map
                     (fn [sound-effect]
                       [:div {:class "row"}
-                       [:div {:class "col-md-11 col-sm-11 col-xs-11"}
+                       [:div {:class "col-md-11 col-sm-10 col-xs-10"}
                         [:h2 (h (:title sound-effect))]
-                        [:p
+                        [:p {:class "text-left"}
                          [:a {:href (:url sound-effect)} (h (:url sound-effect))]]]
-                       [:div {:class "col-md-1 col-sm-1 col-xs-1"}
+                       [:div {:class "col-md-1 col-sm-2 col-xs-2"}
                         (form/form-to [:delete (str "/sound-effects/" (:id sound-effect))]
                                       (anti-forgery/anti-forgery-field)
                                       [:button {:type "submit" :class "btn btn-default"}
