@@ -11,6 +11,7 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: Properties
@@ -32,23 +33,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func loadSoundEffects() {
-        // addicts Noise - Sound Samples
-        // - http://www.noiseaddicts.com/free-samples-mp3
+        Alamofire.request(.GET, "http://evening-inlet-23126.herokuapp.com/api/sound-effects")
+        .responseJSON {
+            response in
+            switch response.result {
+            case .Success(let JSON):
+                let resultArray = JSON as! NSArray
+                for result in resultArray {
+                    let resultDictionary = result as! NSDictionary
+                    self.soundEffects +=
+                            [SoundEffect(title: resultDictionary["title"] as! String,
+                                    url: resultDictionary["url"] as! String)]
+                }
 
-        // Fart
-        // - http://www.noiseaddicts.com/free-samples-mp3/?id=3694
-        soundEffects += [SoundEffect(title: "Fart", url: "http://www.noiseaddicts.com/samples_1w72b820/3694.mp3")]
-        // Snoring
-        // - http://www.noiseaddicts.com/free-samples-mp3/?id=3725
-        soundEffects += [SoundEffect(title: "Snoring", url: "http://www.noiseaddicts.com/samples_1w72b820/3725.mp3")]
-
-
-        // SoundBible.com - Free Sound Effects
-        // - http://soundbible.com/free-sound-effects-1.html
-
-        // Coin Drop
-        // - http://soundbible.com/2081-Coin-Drop.html
-        soundEffects += [SoundEffect(title: "Coin Drop", url: "http://soundbible.com/mp3/Coin_Drop-Willem_Hunt-569197907.mp3")]
+                self.tableView.reloadData()
+            case .Failure(let error):
+                print("Our server may be sleeping... Error: \(error)")
+            }
+        }
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
