@@ -12,10 +12,12 @@
 import UIKit
 import AVFoundation
 import Alamofire
+import PKHUD
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: Properties
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl: UIRefreshControl!
     var soundEffects = [SoundEffect]()
     var audioPlayer: AVAudioPlayer = AVAudioPlayer()
 
@@ -25,6 +27,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshControl)
+
         loadSoundEffects()
     }
 
@@ -33,9 +40,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func loadSoundEffects() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        HUD.show(.Progress)
+        soundEffects.removeAll(keepCapacity: true)
+
         Alamofire.request(.GET, "http://evening-inlet-23126.herokuapp.com/api/sound-effects")
         .responseJSON {
             response in
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            HUD.hide(animated: false)
+
             switch response.result {
             case .Success(let JSON):
                 let resultArray = JSON as! NSArray
@@ -51,6 +65,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print("Our server may be sleeping... Error: \(error)")
             }
         }
+    }
+
+    func refresh(sender: AnyObject) {
+        loadSoundEffects()
+        self.refreshControl.endRefreshing()
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -79,7 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let soundEffectData = NSData(contentsOfURL: soundEffectUrl!)
 
         do {
-            self.audioPlayer = try AVAudioPlayer(data: soundEffectData!)
+            audioPlayer = try AVAudioPlayer(data: soundEffectData!)
             audioPlayer.prepareToPlay()
             audioPlayer.play()
         } catch {
