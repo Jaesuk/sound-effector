@@ -12,13 +12,15 @@
 
 (def url-validator (UrlValidator. (into-array ["http" "https"])))
 
-(defn show-list []
-  (view/index (model/all)))
+(defn show-list [query]
+  (if (string/blank? query)
+    (view/index (model/read))
+    (view/index (model/search query) query)))
 
 (defn create [title url]
   (if (and (not (string/blank? title)) (.isValid url-validator url))
-    (model/create title url)
-    (println "TODO error message and parameters will be returned."))
+    (model/create title url))
+  ; TODO: error message and parameters will be returned.
   (ring-response/redirect "/sound-effects"))
 
 (defn delete [id]
@@ -27,6 +29,6 @@
 
 (defroutes routes
            (GET "/" [] (ring-response/redirect "/sound-effects"))
-           (GET "/sound-effects" [] (show-list))
+           (GET "/sound-effects*" {params :query-params} (show-list (get params "q")))
            (POST "/sound-effects" [title url] (create title url))
            (DELETE "/sound-effects/:id" [id :<< as-int] (delete id)))

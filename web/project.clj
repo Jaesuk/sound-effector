@@ -12,7 +12,8 @@
                  [ring/ring-json "0.4.0"]
                  [compojure "1.4.0"]
                  [hiccup "1.0.5"]
-                 [commons-validator/commons-validator "1.5.0"]]
+                 [commons-validator/commons-validator "1.5.0"]
+                 [clojurewerkz/elastisch "2.2.1"]]
   :main ^:skip-aot sound-effector.web
   :uberjar-name "sound-effector-standalone.jar"
   :plugins [[lein-ring "0.9.7"]]

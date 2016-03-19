@@ -5,7 +5,7 @@
     [sound-effector.models.sound-effect :as model]))
 
 (defn show-list []
-  (response (model/all)))
+  (response (model/read)))
 
 (defroutes routes
            (GET "/api/sound-effects" [] (show-list)))
