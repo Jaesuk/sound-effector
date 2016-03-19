@@ -22,10 +22,12 @@
 
 (defn create [title url]
   ; TODO: apply the transaction.
-  (esd/create (esr/connect es-spec)
-              "sound_effector"
-              "sound_effect"
-              (first (sql/insert! db-spec :sound_effects {:title title :url url}))))
+  (let [sound-effect (first (sql/insert! db-spec :sound_effects {:title title :url url}))]
+    (esd/create (esr/connect es-spec)
+                "sound_effector"
+                "sound_effect"
+                sound-effect
+                :id (str (:id sound-effect)))))
 
 (defn read
   ([]
