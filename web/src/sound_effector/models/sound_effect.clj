@@ -14,7 +14,7 @@
   (loop [hits (:hits (:hits (esd/search (esr/connect es-spec)
                                         "sound_effector"
                                         "sound_effect"
-                                        :query (esq/term :title query))))
+                                        :query (esq/query-string {:query query}))))
          result []]
     (if (empty? hits)
       result
