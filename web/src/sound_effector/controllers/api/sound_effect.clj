@@ -11,4 +11,4 @@
     (response (model/search query))))
 
 (defroutes routes
-           (GET "/api/sound-effects*" {params :query-params} (show-list (get params "q"))))
+           (GET "/api/sound-effects" {{query "q"} :params} (show-list query)))

@@ -9,7 +9,7 @@
                  [org.postgresql/postgresql "9.4.1208"]
                  [ring/ring-jetty-adapter "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
-                 [ring/ring-json "0.4.0"]
+                 [ring-middleware-format "0.7.0"]
                  [compojure "1.4.0"]
                  [hiccup "1.0.5"]
                  [commons-validator/commons-validator "1.5.0"]

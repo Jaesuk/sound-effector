@@ -29,6 +29,6 @@
 
 (defroutes routes
            (GET "/" [] (ring-response/redirect "/sound-effects"))
-           (GET "/sound-effects*" {params :query-params} (show-list (get params "q")))
+           (GET "/sound-effects" {{query :q} :params} (show-list query))
            (POST "/sound-effects" [title url] (create title url))
            (DELETE "/sound-effects/:id" [id :<< as-int] (delete id)))
