@@ -17,6 +17,9 @@ import PKHUD
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: Properties
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var queryTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var allButton: UIButton!
     var refreshControl: UIRefreshControl!
     var soundEffects = [SoundEffect]()
     var audioPlayer: AVAudioPlayer = AVAudioPlayer()
@@ -24,13 +27,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
 
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.addSubview(self.refreshControl)
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
 
         loadSoundEffects()
     }
@@ -40,11 +43,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func loadSoundEffects() {
+        loadSoundEffects(nil)
+    }
+
+    func loadSoundEffects(query: String?) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         HUD.show(.Progress)
         soundEffects.removeAll(keepCapacity: true)
 
-        Alamofire.request(.GET, "http://evening-inlet-23126.herokuapp.com/api/sound-effects")
+        var parameters = [String: AnyObject]()
+        if query != nil && query?.isEmpty == false {
+            parameters["q"] = query
+        }
+
+        Alamofire.request(.GET, "http://evening-inlet-23126.herokuapp.com/api/sound-effects", parameters: parameters)
         .responseJSON {
             response in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -69,7 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func refresh(sender: AnyObject) {
         loadSoundEffects()
-        self.refreshControl.endRefreshing()
+        refreshControl.endRefreshing()
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -104,5 +116,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } catch {
             print("Couldn't play the sound effect at '\(soundEffect.url)'.")
         }
+    }
+
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+        if queryTextField.text == nil || queryTextField.text?.isEmpty == true {
+            HUD.flash(.Label("Please type the keyword to search..."), delay: 0.3) {
+                _ in
+                print("queryTextField is nil or empty.")
+            }
+
+            return
+        }
+
+        loadSoundEffects(queryTextField.text)
+    }
+
+    @IBAction func allButtonPressed(sender: AnyObject) {
+        loadSoundEffects()
     }
 }
