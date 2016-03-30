@@ -2,13 +2,8 @@
   (:require [clojure.java.jdbc :as sql]
             [clojurewerkz.elastisch.rest :as esr]
             [clojurewerkz.elastisch.rest.document :as esd]
-            [clojurewerkz.elastisch.query :as esq]))
-
-(def db-spec
-  (or (System/getenv "DATABASE_URL") "postgresql://localhost:5432/sound_effector"))
-
-(def es-spec
-  (or (System/getenv "SEARCHBOX_URL") "http://localhost:9200"))
+            [clojurewerkz.elastisch.query :as esq]
+            [sound-effector.core :refer [db-spec es-spec]]))
 
 (defn search [query]
   (loop [hits (:hits (:hits (esd/search (esr/connect es-spec)

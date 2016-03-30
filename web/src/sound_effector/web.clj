@@ -1,5 +1,6 @@
 (ns sound-effector.web
   (:require
+    [migratus.core :as migratus]
     [ring.adapter.jetty :as ring]
     [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
     [ring.middleware.format :refer [wrap-restful-format]]
@@ -7,7 +8,7 @@
     [compojure.route :as route]
     [sound-effector.controllers.sound-effect :as controller]
     [sound-effector.controllers.api.sound-effect :as api-controller]
-    [sound-effector.models.schema :as schema]
+    [sound-effector.core :refer [migratus-config elasticsearch-migrate]]
     [sound-effector.views.layout :as layout])
   (:gen-class))
 
@@ -28,6 +29,7 @@
                                :join? false}))
 
 (defn -main []
-  (schema/migrate)
+  (migratus/migrate migratus-config)
+  (elasticsearch-migrate)
   (let [port (Integer. (or (System/getenv "PORT") "8080"))]
     (start port)))
