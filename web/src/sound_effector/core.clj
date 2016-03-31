@@ -12,7 +12,7 @@
 (def es-spec
   (or (System/getenv "SEARCHBOX_URL") "http://localhost:9200"))
 
-(def elasticsearch-migrate []
+(defn elasticsearch-migrate []
   (when (not (esi/exists? (esr/connect es-spec) "sound_effector"))
     (println "Creating elasticsearch indices...") (flush)
     (print "- Createing sound_effector index...") (flush)
