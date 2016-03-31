@@ -1,0 +1,3 @@
+DROP INDEX IF EXISTS users_uk1;
+--;;
+DROP TABLE IF EXISTS users;
