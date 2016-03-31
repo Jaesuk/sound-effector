@@ -19,7 +19,7 @@
   :uberjar-name "sound-effector-standalone.jar"
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler sound-effector.web/application
-         :init    sound-effector.models.schema/migrate}
+         :init    sound-effector.web/migrate}
   :profiles {:dev     {:dependencies [[javax.servlet/servlet-api "2.5"]
                                       [ring-mock "0.1.5"]]}
              :uberjar {:omit-source true

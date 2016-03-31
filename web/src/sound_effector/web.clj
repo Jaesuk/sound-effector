@@ -28,8 +28,11 @@
   (ring/run-jetty application {:port  port
                                :join? false}))
 
-(defn -main []
+(defn migrate []
   (migratus/migrate migratus-config)
-  (elasticsearch-migrate)
+  (elasticsearch-migrate))
+
+(defn -main []
+  (migrate)
   (let [port (Integer. (or (System/getenv "PORT") "8080"))]
     (start port)))
