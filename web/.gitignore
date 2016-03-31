@@ -74,6 +74,7 @@ fabric.properties
 .idea/copyright/profiles_settings.xml
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/inspectionProfiles/Project_Default.xml
+.idea/sqldialects.xml
 sound-effector.iml
 
 
