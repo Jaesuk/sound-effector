@@ -3,8 +3,6 @@
     [clojure.string :as string]
     [clojure.data.json :as json]
     [ring.util.response :refer [redirect]]
-    [ring.middleware.format :refer [wrap-restful-format]]
-    [ring.middleware.format-response :refer [wrap-restful-response]]
     [ring.middleware.params :refer [params-request]]
     [compojure.core :refer [defroutes context GET POST DELETE]]
     [compojure.coercions :refer [as-int]]
