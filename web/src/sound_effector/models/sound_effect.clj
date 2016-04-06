@@ -28,7 +28,7 @@
   ([]
    (into [] (sql/query db-spec ["SELECT * FROM sound_effects ORDER BY id DESC"])))
   ([id]
-   (sql/query db-spec ["SELECT * FROM sound_effects WHERE id = ?" id])))
+   (first (sql/query db-spec ["SELECT * FROM sound_effects WHERE id = ?" id]))))
 
 (defn delete [id]
   ; TODO: apply the transaction.
