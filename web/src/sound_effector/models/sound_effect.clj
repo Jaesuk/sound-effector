@@ -22,7 +22,8 @@
                 "sound_effector"
                 "sound_effect"
                 sound-effect
-                :id (str (:id sound-effect)))))
+                :id (str (:id sound-effect)))
+    sound-effect))
 
 (defn read
   ([]
