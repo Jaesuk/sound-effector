@@ -10,7 +10,8 @@
      (page/include-js "/lib/jquery/dist/jquery.min.js")
      (page/include-css "/lib/bootstrap/dist/css/bootstrap.min.css")
      (page/include-js "/lib/bootstrap/dist/js/bootstrap.min.js")
-     (page/include-css "/lib/font-awesome/css/font-awesome.min.css")]
+     (page/include-css "/lib/font-awesome/css/font-awesome.min.css")
+     (page/include-css "/css/sound_effector.css")]
     [:body
      [:div {:id "content" :class "container"} content]]))
 
