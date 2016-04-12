@@ -13,13 +13,14 @@
     [sound-effector.controllers.auth.facebook-with-friend :as auth-facebook-with-friend]
     [sound-effector.controllers.user :as user-controller]
     [sound-effector.controllers.sound-effect :as sound-effect-controller]
-    [sound-effector.views.layout :as layout])
+    [sound-effector.views.layout :as layout]
+    [sound-effector.views.index :as index-view])
   (:gen-class))
 
 (defroutes site-routes
            user-controller/routes
            sound-effect-controller/routes
-           (GET "/" request (str "Request : " request))
+           (GET "/" request (index-view/index request))
            (GET "/test" request (friend/authorize #{::role/user} (str "Hello, <br/>" request "<br/>" (get-in request [:session ::friend/identity :current]))))
            (friend/logout (GET "/logout" [] (redirect "/")))
            (resources "/")

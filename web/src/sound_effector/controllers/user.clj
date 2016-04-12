@@ -5,9 +5,10 @@
     [sound-effector.models.user :as model]
     [sound-effector.views.user :as view]))
 
-(defn show-create-form [{{creating-user :creating-user} :session}]
+(defn show-create-form [{{creating-user :creating-user} :session
+                         :as                            request}]
   (if-not (nil? creating-user)
-    (view/show-create-form creating-user)
+    (view/show-create-form request creating-user)
     (->
       (redirect "/")
       (header "Pragma" "no-cache"))))

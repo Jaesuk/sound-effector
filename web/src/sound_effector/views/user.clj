@@ -4,8 +4,9 @@
             [hiccup.form :as form]
             [ring.util.anti-forgery :as anti-forgery]))
 
-(defn show-create-form [creating-user]
-  (layout/common "Sound Effector - Join us :D!!!"
+(defn show-create-form [request creating-user]
+  (layout/common request
+                 "Sound Effector - Join us :D!!!"
                  [:h1 (str "Welcome, " (:name creating-user) "! :D")]
                  [:div {:class "media"}
                   [:div {:class "media-left"}

@@ -29,10 +29,11 @@
                              :onclick "document.location.href='/sound-effects';"}
                     [:i {:class "glyphicon glyphicon-th-list"}]]]])])
 
-(defn index
-  ([sound-effects] (index sound-effects nil))
-  ([sound-effects query]
-   (layout/common "Sound Effects"
+(defn show-list
+  ([request sound-effects] (show-list request nil sound-effects))
+  ([request query sound-effects]
+   (layout/common request
+                  "Sound Effects"
                   [:h1 "Sound Effects"]
                   (show-create-form)
                   [:hr]
