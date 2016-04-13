@@ -25,8 +25,8 @@
 
 (defn read
   ([id]
-   (let [user (first (sql/query db-spec ["SELECT * FROM users WHERE id = ?" id]))]
+   (if-let [user (first (sql/query db-spec ["SELECT * FROM users WHERE id = ?" id]))]
      (assoc user :providers (make-providers (:id user)))))
   ([provider-id provider-user-id]
-   (let [user (first (sql/query db-spec ["SELECT a.* FROM users a JOIN user_providers b ON (b.provider_id = ? AND b.provider_user_id = ? AND b.user_id = a.id)" provider-id provider-user-id]))]
+   (if-let [user (first (sql/query db-spec ["SELECT a.* FROM users a JOIN user_providers b ON (b.provider_id = ? AND b.provider_user_id = ? AND b.user_id = a.id)" provider-id provider-user-id]))]
      (assoc user :providers (make-providers (:id user))))))
