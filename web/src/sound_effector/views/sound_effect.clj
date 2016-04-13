@@ -32,28 +32,30 @@
 (defn show-list
   ([request sound-effects] (show-list request nil sound-effects))
   ([request query sound-effects]
-   (layout/common request
-                  "Sound Effects"
-                  [:h1 "Sound Effects"]
-                  (show-create-form)
-                  [:hr]
-                  (show-search-form query)
-                  [:div
-                   (if-not (empty? sound-effects)
-                     (map
-                       (fn [sound-effect]
-                         [:div {:class "row"}
-                          [:div {:class "col-md-11 col-sm-10 col-xs-10"}
-                           [:h2 (h (:title sound-effect))]
-                           [:p {:class "text-left"}
-                            [:a {:href (:url sound-effect)} (h (:url sound-effect))]]]
-                          [:div {:class "col-md-1 col-sm-2 col-xs-2"}
-                           (form/form-to [:delete (str "/sound-effects/" (:id sound-effect))]
-                                         (anti-forgery/anti-forgery-field)
-                                         [:button {:type "submit" :class "btn btn-default" :style "margin-top:20px;"}
-                                          [:i {:class "glyphicon glyphicon-remove"}]])]])
-                       sound-effects)
-                     (if (string/blank? query)
-                       [:h3 {:class "text-danger"} "No sound effects found."]
-                       [:h3 {:class "text-danger"} (str "No sound effects found by " query)]
-                       ))])))
+   (layout/common
+     request
+     "Sound Effects"
+     [:h1 "Sound Effects"]
+     (show-create-form)
+     [:hr]
+     (show-search-form query)
+     [:div
+      (if-not (empty? sound-effects)
+        (map
+          (fn [sound-effect]
+            [:div {:class "row"}
+             [:div {:class "col-md-11 col-sm-10 col-xs-10"}
+              [:h2 (h (:title sound-effect))]
+              [:p {:class "text-left"}
+               [:a {:href (:url sound-effect)} (h (:url sound-effect))]]]
+             [:div {:class "col-md-1 col-sm-2 col-xs-2" :style "text-align: center"}
+              [:small (if (string/blank? (:uploader_name sound-effect)) "Unknown" (:uploader_name sound-effect))]
+              (form/form-to [:delete (str "/sound-effects/" (:id sound-effect))]
+                            (anti-forgery/anti-forgery-field)
+                            [:button {:type "submit" :class "btn btn-default"}
+                             [:i {:class "glyphicon glyphicon-remove"}]])]])
+          sound-effects)
+        (if (string/blank? query)
+          [:h3 {:class "text-danger"} "No sound effects found."]
+          [:h3 {:class "text-danger"} (str "No sound effects found by " query)]
+          ))])))
