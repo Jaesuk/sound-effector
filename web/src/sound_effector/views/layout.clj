@@ -28,7 +28,7 @@
         [:a {:class "btn btn-fb" :href "/sound-effects"}
          [:i {:class "fa fa-facebook"} " Facebook"]]]))])
 
-(defn common [request title & content]
+(defn- private-common [request title with-navigation & content]
   (page/html5
     [:head
      [:meta {:charset "utf-8"}]
@@ -41,9 +41,16 @@
      (page/include-css "/css/sound_effector.css")]
     [:body
      [:div {:id "content" :class "container"}
-      (navigation request)
+      (if with-navigation (navigation request))
       content]]))
 
+(defn common [request title & content]
+  (private-common request title true content))
+
+(defn common-without-navigation [request title & content]
+  (private-common request title false content))
+
 (defn response-404 []
-  (common "Page Not Found"
+  (common nil
+          "Page Not Found"
           "Page Not Found"))
