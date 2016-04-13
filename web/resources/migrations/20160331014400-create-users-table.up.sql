@@ -6,3 +6,5 @@ CREATE TABLE users (
 );
 --;;
 CREATE UNIQUE INDEX users_uk1 ON users (email);
+--;;
+INSERT INTO users (name, email) VALUES ('System', 'system@soundeffector.com');

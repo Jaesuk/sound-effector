@@ -15,9 +15,12 @@
       result
       (recur (next hits) (conj result (:_source (first hits)))))))
 
-(defn create [title url]
+(defn create [title url uploader]
   ; TODO: apply the transaction.
-  (let [sound-effect (first (sql/insert! db-spec :sound_effects {:title title :url url}))]
+  (let [sound-effect (first (sql/insert! db-spec
+                                         :sound_effects {:title            title
+                                                         :url              url
+                                                         :uploader_id (:id uploader)}))]
     (esd/create (esr/connect es-spec)
                 "sound_effector"
                 "sound_effect"
@@ -27,9 +30,9 @@
 
 (defn read
   ([]
-   (into [] (sql/query db-spec ["SELECT * FROM sound_effects ORDER BY id DESC"])))
+   (into [] (sql/query db-spec ["SELECT a.*, b.name uploader_name FROM sound_effects a LEFT JOIN users b ON (a.uploader_id = b.id) ORDER BY id DESC"])))
   ([id]
-   (first (sql/query db-spec ["SELECT * FROM sound_effects WHERE id = ?" id]))))
+   (first (sql/query db-spec ["SELECT a.*, b.name uploader_name FROM sound_effects a LEFT JOIN users b ON (a.uploader_id = b.id) WHERE a.id = ?" id]))))
 
 (defn delete [id]
   ; TODO: apply the transaction.

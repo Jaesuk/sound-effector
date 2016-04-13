@@ -30,9 +30,9 @@
       (json/write-str (model/read) :value-fn (fn [_ value] (if (instance? java.sql.Timestamp value) (str value) value)))
       (model/search query))))
 
-(defn create [title url]
+(defn create [title url uploader]
   (if (and (not (string/blank? title)) (.isValid url-validator url))
-    (model/create title url)))
+    (model/create title url uploader)))
 
 (defn delete [id]
   (model/delete id))
@@ -54,8 +54,10 @@
 
                  :post!
                  #(let [title (get-in % [:request :params :title])
-                        url (get-in % [:request :params :url])]
-                   (create title url))
+                        url (get-in % [:request :params :url])
+                        current-user-id (get-in % [:request :session ::friend/identity :current])
+                        current-user (get-in % [:request :session ::friend/identity :authentications current-user-id :user])]
+                   (create title url current-user))
                  :post-redirect? (fn [_] {:location "/sound-effects"}))))
 
            (ANY ["/sound-effects/:id{[0-9]+}"] [id :<< as-int]
