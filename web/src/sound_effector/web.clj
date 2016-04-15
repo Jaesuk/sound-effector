@@ -1,5 +1,6 @@
 (ns sound-effector.web
   (:require
+    [clojure.data.json :as json]
     [migratus.core :as migratus]
     [ring.adapter.jetty :as ring]
     [ring.logger :as logger]
@@ -26,9 +27,30 @@
            (resources "/")
            (not-found (layout/response-404)))
 
+(defn- unauthenticated-handler [request]
+  (let [media-type (get-in request [:headers "accept"])]
+    (if (= media-type "application/json")
+      (->
+        (response (json/write-str {:message "You need to login first. ;)"}))
+        (status 403)
+        (content-type "application/json"))
+      (friend/default-unauthenticated-handler request))))
+
+(defn- unauthorized-handler [request]
+  (let [media-type (get-in request [:headers "accept"])]
+    (if (= media-type "application/json")
+      (->
+        (response (json/write-str {:message "You don't have the permission."}))
+        (status 403)
+        (content-type "application/json"))
+      (friend/default-unauthorized-handler request))))
+
 (def application
   (-> site-routes
-      (friend/authenticate {:allow-anon? true :workflows [(auth-facebook-with-friend/workflow)]})
+      (friend/authenticate {:allow-anon?             true
+                            :workflows               [(auth-facebook-with-friend/workflow)]
+                            :unauthenticated-handler unauthenticated-handler
+                            :unauthorized-handler    unauthorized-handler})
       (wrap-defaults site-defaults)))
 
 (defn start [port]
