@@ -43,7 +43,9 @@
         (response (json/write-str {:message "You don't have the permission."}))
         (status 403)
         (content-type "application/json"))
-      (friend/default-unauthorized-handler request))))
+      (->
+        (response "You don't have the permission.")
+        (status 403)))))
 
 (def application
   (-> site-routes
