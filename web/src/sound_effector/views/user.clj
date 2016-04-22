@@ -17,7 +17,7 @@
       (:email creating-user)]]
     [:p "Do you confirm the informations to join us?"]
     [:div {:class "row"}
-     (form/form-to [:post "/users/new"]
+     (form/form-to [:post "/users"]
                    (anti-forgery/anti-forgery-field)
                    [:div {:class "col-md-1 col-sm-2 col-xs-2"}
                     (form/submit-button {:class "btn btn-primary"} "Confirm")]

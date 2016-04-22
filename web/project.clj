@@ -12,6 +12,7 @@
                  [migratus "0.8.13"]
                  [ring/ring-jetty-adapter "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
+                 [ring/ring-anti-forgery "1.0.1"]
                  [ring-logger "0.7.6"]
                  [compojure "1.4.0"]
                  [liberator "0.13"]
