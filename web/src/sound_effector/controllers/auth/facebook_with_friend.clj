@@ -136,7 +136,7 @@
               (friend/merge-authentication authentication)))
           (->
             (response (json/write-str {:message "Will you join us?" :creating-user (assoc facebook-user-info :provider-id provider-id)}))
-            (status 200)
+            (status 202)
             (content-type "application/json")
             (header "Pragma" "no-cache")
             (header "X-CSRF-Token" *anti-forgery-token*)
