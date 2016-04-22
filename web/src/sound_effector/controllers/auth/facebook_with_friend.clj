@@ -1,14 +1,16 @@
 (ns sound-effector.controllers.auth.facebook-with-friend
   (:require
+    [clojure.data.json :as json]
     [clojure.string :as string]
     [crypto.random :as random]
+    [clj-http.client :as http]
+    [ring.middleware.anti-forgery :refer [*anti-forgery-token*]]
     [ring.util.codec :refer [url-encode]]
     [ring.util.response :refer [redirect response status content-type header]]
     [compojure.core :refer [defroutes context GET]]
     [cemerick.friend :as friend]
-    [liberator.core :refer [resource]]
-    [clj-http.client :as http]
     [cemerick.friend.workflows :refer [make-auth]]
+    [liberator.core :refer [resource]]
     [sound-effector.models.user :as user]
     [sound-effector.models.role :as role]))
 
@@ -113,6 +115,36 @@
                               "<br/>Description : " error-description
                               "<br/>Request : " request))))
 
+(defn- handle-json-error-result [body]
+  (->
+    (response (json/write-str body))
+    (status 400)
+    (content-type "application/json")
+    (header "Pragma" "no-cache")))
+
+(defn login-for-mobile-app [request]
+  (let [access-token (get-in request [:params :access-token])]
+    (if (not (nil? access-token))
+      (if-let [facebook-user-info (get-user-info access-token)]
+        (if-let [user (user/read provider-id (:id facebook-user-info))]
+          (let [authentication (make-auth {:identity (:id user) :user user :roles #{::role/user}})]
+            (->
+              (response (json/write-str {:message "Login completed. :D"}))
+              (status 200)
+              (content-type "application/json")
+              (header "Pragma" "no-cache")
+              (friend/merge-authentication authentication)))
+          (->
+            (response (json/write-str {:message "Will you join us?" :creating-user (assoc facebook-user-info :provider-id provider-id)}))
+            (status 200)
+            (content-type "application/json")
+            (header "Pragma" "no-cache")
+            (header "X-CSRF-Token" *anti-forgery-token*)
+            (assoc :session (assoc (:session request) :creating-user
+                                           (assoc facebook-user-info :provider-id provider-id)))))
+        (handle-json-error-result {:message "Couln't get the user information in Facebook!" :access-token access-token}))
+      (handle-json-error-result {:message "Couln't get the access token!"}))))
+
 (defn workflow []
   (fn [request]
     (cond
@@ -122,6 +154,5 @@
       (= (:uri request) (get-in client-config [:callback :path]))
       (calledback request)
 
-      (= (:uri request) "/users/new/done")
-      (let [user (get-in request [:flash :user])]
-        (make-auth {:identity (:id user) :user user :roles #{::role/user}})))))
+      (= (:uri request) "/auth/facebook/app")
+      (login-for-mobile-app request))))
