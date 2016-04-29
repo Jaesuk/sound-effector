@@ -141,9 +141,18 @@
             (header "Pragma" "no-cache")
             (header "X-CSRF-Token" *anti-forgery-token*)
             (assoc :session (assoc (:session request) :creating-user
-                                           (assoc facebook-user-info :provider-id provider-id)))))
+                                                      (assoc facebook-user-info :provider-id provider-id)))))
         (handle-json-error-result {:message "Couln't get the user information in Facebook!" :access-token access-token}))
       (handle-json-error-result {:message "Couln't get the access token!"}))))
+
+(defn is-session-alive? [request]
+  (if-let [_ (get-in request [:session ::friend/identity])]
+    (->
+      {:status 200}
+      (content-type "application/json"))
+    (->
+      {:status 403}
+      (content-type "application/json"))))
 
 (defn workflow []
   (fn [request]
@@ -155,4 +164,15 @@
       (calledback request)
 
       (= (:uri request) "/auth/facebook/app")
-      (login-for-mobile-app request))))
+      (let [request-method (:request-method request)]
+        (condp = request-method
+          :get (login-for-mobile-app request)
+          (-> (response "Invalid request.")
+              (status 400))))
+
+      (= (:uri request) "/auth")
+      (let [request-method (:request-method request)]
+        (condp = request-method
+          :head (is-session-alive? request)
+          (-> (response "Invalid request.")
+              (status 400)))))))
