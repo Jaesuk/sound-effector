@@ -22,7 +22,8 @@
            user-controller/routes
            sound-effect-controller/routes
            (GET "/" request (index-view/index request))
-           (GET "/test" request (friend/authorize #{::role/user} (str "Hello, <br/>" request "<br/>" (get-in request [:session ::friend/identity :current]))))
+           (GET "/status" request (str "Status, <br/>" request "<br/>" (get-in request [:session ::friend/identity :current])))
+           (GET "/authorized-status" request (friend/authorize #{::role/user} (str "Authorized status, <br/>" request "<br/>" (get-in request [:session ::friend/identity :current]))))
            (friend/logout (GET "/logout" [] (redirect "/")))
            (resources "/")
            (not-found (layout/response-404)))
