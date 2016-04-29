@@ -13,8 +13,10 @@ import UIKit
 import AVFoundation
 import Alamofire
 import PKHUD
+import FBSDKCoreKit
+import FBSDKLoginKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LoginManagerIsSessionAliveDelegate {
     // MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var queryTextField: UITextField!
@@ -32,10 +34,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(ViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
+    }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // TODO: Don't need to do this every time.
+        LoginManager.sharedInstance.isSessionAlive(self)
+    }
+
+    func isSessionAliveTrue() {
         loadSoundEffects()
+    }
+
+    func isSessionAliveFalse() {
+        let viewController = storyboard!.instantiateViewControllerWithIdentifier("viewController") as UIViewController
+        presentViewController(viewController, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,12 +67,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         HUD.show(.Progress)
         soundEffects.removeAll(keepCapacity: true)
 
-        var parameters = [String: AnyObject]()
-        if query != nil && query?.isEmpty == false {
-            parameters["q"] = query
+        let urlString = "https://evening-inlet-23126.herokuapp.com/sound-effects"
+        let headers = ["Accept": "application/json"]
+        var parameters = [String: String]()
+        if query != nil && query!.isEmpty == false {
+            parameters["q"] = query!
         }
 
-        Alamofire.request(.GET, "http://evening-inlet-23126.herokuapp.com/api/sound-effects", parameters: parameters)
+        Alamofire.Manager.sharedInstance.request(.GET, urlString, headers: headers, parameters: parameters)
         .responseJSON {
             response in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -64,17 +82,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
             switch response.result {
             case .Success(let JSON):
-                let resultArray = JSON as! NSArray
-                for result in resultArray {
-                    let resultDictionary = result as! NSDictionary
-                    self.soundEffects +=
-                            [SoundEffect(title: resultDictionary["title"] as! String,
-                                    url: resultDictionary["url"] as! String)]
-                }
+                if JSON is NSArray {
+                    let resultArray = JSON as! NSArray
+                    for result in resultArray {
+                        let resultDictionary = result as! NSDictionary
+                        self.soundEffects +=
+                                [SoundEffect(title: resultDictionary["title"] as! String,
+                                        url: resultDictionary["url"] as! String)]
+                    }
 
-                self.tableView.reloadData()
+                    self.tableView.reloadData()
+                } else if JSON is NSDictionary {
+                    let result = JSON as! NSDictionary
+                    HUD.flash(.Label(result["message"] as? String), delay: 0.3) {
+                        _ in
+                        print(result["message"] as! String)
+                    }
+                }
             case .Failure(let error):
-                print("Our server may be sleeping... Error: \(error)")
+                print("Our server may be sleeping... Error: \(error.localizedDescription)")
             }
         }
     }

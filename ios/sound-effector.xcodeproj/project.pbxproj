@@ -9,15 +9,14 @@
 /* Begin PBXBuildFile section */
 		6CDDAEB8882A346F801E7309 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9258D483896F0C28635271 /* Pods.framework */; };
 		BA684262C19CB885A7BABC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6840D64DB9EEB21286FAC4 /* AppDelegate.swift */; };
-		BA6842702694875A5BC8C542 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA684B6D9AC66B12DDDE7ED4 /* Info.plist */; };
-		BA6842733DDE17DDBE4AB598 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA684BE7DE63018D74EA6B97 /* Info.plist */; };
-		BA6842E4E32E78AB59B95C44 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA684B09AE691ED5AC75C63F /* Info.plist */; };
 		BA68451E88A5E0E025F3DA7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA684BEB1A5CEB0C1AA29195 /* ViewController.swift */; };
+		BA68460AE1B498FAD4F1FF37 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA684AF0038C358BA4C0F720 /* LoginViewController.swift */; };
 		BA6846E64F42250BB433DDAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA684A40C516C13797C1C978 /* Main.storyboard */; };
 		BA6847AE3C55C2B8A36FEBDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA684F0D8D5497540E17C9B6 /* LaunchScreen.storyboard */; };
 		BA6849B42AB7ECFAB001B608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA68446EC03D317AE3055F60 /* Assets.xcassets */; };
 		BA684A072B00526A9B3ABF00 /* SoundEffectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68445CF6FC3A969121C3B5 /* SoundEffectTableViewCell.swift */; };
 		BA684A3A2B062CC58CC97D8D /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68488D36A8B7BD57EB35EE /* SoundEffect.swift */; };
+		BA684A81F24AD027C22E84D9 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68476B9BB340583DC2BC89 /* LoginManager.swift */; };
 		BA684C77655266AB198CD988 /* sound_effectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68491A2495DE42BF59421C /* sound_effectorTests.swift */; };
 		BA684D794761B71C231E54B7 /* sound_effectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6843F49BC54BEFB8C8D360 /* sound_effectorUITests.swift */; };
 		BA684FD3FC308135F64CFD9E /* sound_effector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA6846C493281487DD979BF8 /* sound_effector.xcdatamodeld */; };
@@ -49,9 +48,11 @@
 		BA6843F49BC54BEFB8C8D360 /* sound_effectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sound_effectorUITests.swift; sourceTree = "<group>"; };
 		BA68445CF6FC3A969121C3B5 /* SoundEffectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffectTableViewCell.swift; sourceTree = "<group>"; };
 		BA68446EC03D317AE3055F60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA68476B9BB340583DC2BC89 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		BA68488D36A8B7BD57EB35EE /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		BA68491A2495DE42BF59421C /* sound_effectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sound_effectorTests.swift; sourceTree = "<group>"; };
 		BA684A24E5BFF249AE3B8F8E /* sound-effectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sound-effectorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA684AF0038C358BA4C0F720 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BA684B09AE691ED5AC75C63F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		BA684B6D9AC66B12DDDE7ED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		BA684BE7DE63018D74EA6B97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +149,8 @@
 				BA684BEB1A5CEB0C1AA29195 /* ViewController.swift */,
 				BA68445CF6FC3A969121C3B5 /* SoundEffectTableViewCell.swift */,
 				BA68488D36A8B7BD57EB35EE /* SoundEffect.swift */,
+				BA68476B9BB340583DC2BC89 /* LoginManager.swift */,
+				BA684AF0038C358BA4C0F720 /* LoginViewController.swift */,
 			);
 			path = "sound-effector";
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Jaesuk Hwang";
 				TargetAttributes = {
 					BA68450B2F9B562FFEE2DF9F = {
@@ -258,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA6842733DDE17DDBE4AB598 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +269,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA6842702694875A5BC8C542 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +276,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA6842E4E32E78AB59B95C44 /* Info.plist in Resources */,
 				BA6849B42AB7ECFAB001B608 /* Assets.xcassets in Resources */,
 				BA6847AE3C55C2B8A36FEBDB /* LaunchScreen.storyboard in Resources */,
 				BA6846E64F42250BB433DDAC /* Main.storyboard in Resources */,
@@ -349,6 +350,8 @@
 				BA68451E88A5E0E025F3DA7E /* ViewController.swift in Sources */,
 				BA684A072B00526A9B3ABF00 /* SoundEffectTableViewCell.swift in Sources */,
 				BA684A3A2B062CC58CC97D8D /* SoundEffect.swift in Sources */,
+				BA684A81F24AD027C22E84D9 /* LoginManager.swift in Sources */,
+				BA68460AE1B498FAD4F1FF37 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

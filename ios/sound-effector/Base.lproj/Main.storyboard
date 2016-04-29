@@ -1,15 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nzj-Zj-EDI">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="5Zd-zL-Af1">
+            <objects>
+                <viewController restorationIdentifier="loginViewController" storyboardIdentifier="loginViewController" id="nzj-Zj-EDI" userLabel="Login View Controller" customClass="LoginViewController" customModule="sound_effector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fWh-kb-cpU"/>
+                        <viewControllerLayoutGuide type="bottom" id="R7k-vv-isH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EKL-i8-s1h">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join or login with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjt-Su-rN4">
+                                <rect key="frame" x="235" y="290" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X81-nE-NWY">
+                                <rect key="frame" x="266" y="326" width="67" height="30"/>
+                                <state key="normal" title="Facebook"/>
+                                <connections>
+                                    <action selector="facebookButtonPressed:" destination="nzj-Zj-EDI" eventType="touchUpInside" id="NqE-LH-HsF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xjt-Su-rN4" firstAttribute="centerX" secondItem="EKL-i8-s1h" secondAttribute="centerX" id="6Of-Dw-a5U"/>
+                            <constraint firstItem="Xjt-Su-rN4" firstAttribute="centerY" secondItem="EKL-i8-s1h" secondAttribute="centerY" id="BWe-Xv-zlS"/>
+                            <constraint firstItem="X81-nE-NWY" firstAttribute="centerX" secondItem="Xjt-Su-rN4" secondAttribute="centerX" id="W5X-ZS-6cW"/>
+                            <constraint firstItem="X81-nE-NWY" firstAttribute="top" secondItem="Xjt-Su-rN4" secondAttribute="bottom" constant="15" id="qsp-r8-Zky"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lt-UU-U4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-271" y="-547"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sound_effector" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="viewController" storyboardIdentifier="viewController" id="BYZ-38-t0r" customClass="ViewController" customModule="sound_effector" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,26 +58,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IXY-Ov-fDE">
-                                <rect key="frame" x="0.0" y="20" width="580" height="590"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="590"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="nsM-ne-7MT">
-                                    <rect key="frame" x="0.0" y="0.0" width="580" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uWc-3t-NEW" userLabel="Query Round Style Text Field">
-                                            <rect key="frame" x="20" y="7" width="442" height="30"/>
+                                            <rect key="frame" x="20" y="7" width="462" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59J-0P-RQW" userLabel="All Button">
-                                            <rect key="frame" x="540" y="7" width="30" height="30"/>
+                                            <rect key="frame" x="560" y="7" width="30" height="30"/>
                                             <state key="normal" title="All"/>
                                             <connections>
                                                 <action selector="allButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m5R-rN-roS"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6he-OK-45b" userLabel="Search Button">
-                                            <rect key="frame" x="482" y="7" width="48" height="30"/>
+                                            <rect key="frame" x="502" y="7" width="48" height="30"/>
                                             <state key="normal" title="Search"/>
                                             <connections>
                                                 <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gqD-2s-b22"/>
@@ -58,20 +97,20 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SoundEffectTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SoundEffectTableViewCell" id="Jm2-cA-PPT" customClass="SoundEffectTableViewCell" customModule="sound_effector" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="580" height="80"/>
+                                        <rect key="frame" x="0.0" y="72" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jm2-cA-PPT" id="pvr-3G-bTr">
-                                            <rect key="frame" x="0.0" y="0.0" width="580" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOJ-sr-HQa" userLabel="URL">
-                                                    <rect key="frame" x="38" y="45" width="529" height="10"/>
+                                                    <rect key="frame" x="38" y="45" width="549" height="10"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="8"/>
                                                     <color key="textColor" red="0.5051333442" green="0.5051333442" blue="0.5051333442" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdL-YP-aP7" userLabel="Title">
-                                                    <rect key="frame" x="28" y="10" width="539" height="30"/>
+                                                    <rect key="frame" x="28" y="10" width="559" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="DeY-87-Mm1"/>
                                                     </constraints>
@@ -100,7 +139,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="IXY-Ov-fDE" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" constant="10" id="EGz-nN-iuF"/>
-                            <constraint firstItem="IXY-Ov-fDE" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="IOe-XT-Wky"/>
+                            <constraint firstItem="IXY-Ov-fDE" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="IOe-XT-Wky"/>
                             <constraint firstItem="IXY-Ov-fDE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="amC-Ud-wbu"/>
                             <constraint firstItem="IXY-Ov-fDE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="g7E-X1-Zc9"/>
                         </constraints>
