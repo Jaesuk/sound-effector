@@ -50,8 +50,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func isSessionAliveFalse() {
-        let viewController = storyboard!.instantiateViewControllerWithIdentifier("viewController") as UIViewController
-        presentViewController(viewController, animated: true, completion: nil)
+        let loginViewController = storyboard!.instantiateViewControllerWithIdentifier("loginViewController") as UIViewController
+        presentViewController(loginViewController, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
