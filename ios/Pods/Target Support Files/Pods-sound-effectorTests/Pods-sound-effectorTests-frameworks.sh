@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-sound-effectorTests/Alamofire.framework"
+  install_framework "Pods-sound-effectorTests/AlamofireImage.framework"
   install_framework "Pods-sound-effectorTests/Bolts.framework"
   install_framework "Pods-sound-effectorTests/FBSDKCoreKit.framework"
   install_framework "Pods-sound-effectorTests/FBSDKLoginKit.framework"
@@ -93,6 +94,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-sound-effectorTests/Alamofire.framework"
+  install_framework "Pods-sound-effectorTests/AlamofireImage.framework"
   install_framework "Pods-sound-effectorTests/Bolts.framework"
   install_framework "Pods-sound-effectorTests/FBSDKCoreKit.framework"
   install_framework "Pods-sound-effectorTests/FBSDKLoginKit.framework"
