@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -44,6 +45,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lt-UU-U4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-271" y="-547"/>
+        </scene>
+        <!--Join View Controller-->
+        <scene sceneID="UP5-23-trm">
+            <objects>
+                <viewController restorationIdentifier="joinViewController" storyboardIdentifier="joinViewController" id="Mzo-WY-95Y" userLabel="Join View Controller" customClass="JoinViewController" customModule="sound_effector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8OE-Tg-aSI"/>
+                        <viewControllerLayoutGuide type="bottom" id="gwf-Qn-VhZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r4M-Iv-81y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GOd-Lu-ZBx" userLabel="Profile Image View">
+                                <rect key="frame" x="250" y="148" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="58j-uV-BSw"/>
+                                    <constraint firstAttribute="width" constant="100" id="tgP-vk-17n"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cV0-XQ-rBp">
+                                <rect key="frame" x="202" y="330" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="Mzo-WY-95Y" eventType="touchUpInside" id="LPt-zw-yeN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kO-DA-m0H" userLabel="E-mail Label">
+                                <rect key="frame" x="276" y="289" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdB-Ky-c5r" userLabel="Name Label">
+                                <rect key="frame" x="278" y="258" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giB-rB-c0O">
+                                <rect key="frame" x="350" y="330" width="55" height="30"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmButtonPressed:" destination="Mzo-WY-95Y" eventType="touchUpInside" id="ykG-Pc-sWl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="giB-rB-c0O" firstAttribute="top" secondItem="6kO-DA-m0H" secondAttribute="bottom" constant="20" id="ADq-zd-81L"/>
+                            <constraint firstItem="wdB-Ky-c5r" firstAttribute="centerX" secondItem="r4M-Iv-81y" secondAttribute="centerX" id="Ekg-Yq-xv1"/>
+                            <constraint firstItem="cV0-XQ-rBp" firstAttribute="top" secondItem="6kO-DA-m0H" secondAttribute="bottom" constant="20" id="Izt-yu-DHU"/>
+                            <constraint firstItem="6kO-DA-m0H" firstAttribute="top" secondItem="wdB-Ky-c5r" secondAttribute="bottom" constant="10" id="SNh-7Q-I4R"/>
+                            <constraint firstItem="cV0-XQ-rBp" firstAttribute="trailing" secondItem="r4M-Iv-81y" secondAttribute="centerX" constant="-50" id="Vm8-mK-xNq"/>
+                            <constraint firstItem="giB-rB-c0O" firstAttribute="leading" secondItem="r4M-Iv-81y" secondAttribute="centerX" constant="50" id="ffi-FX-DVL"/>
+                            <constraint firstItem="wdB-Ky-c5r" firstAttribute="top" secondItem="GOd-Lu-ZBx" secondAttribute="bottom" constant="10" id="lLo-6H-BJO"/>
+                            <constraint firstItem="6kO-DA-m0H" firstAttribute="centerX" secondItem="r4M-Iv-81y" secondAttribute="centerX" id="mOL-UP-797"/>
+                            <constraint firstItem="GOd-Lu-ZBx" firstAttribute="centerX" secondItem="r4M-Iv-81y" secondAttribute="centerX" id="nHX-dD-CED"/>
+                            <constraint firstItem="6kO-DA-m0H" firstAttribute="centerY" secondItem="r4M-Iv-81y" secondAttribute="centerY" id="xtc-3f-LlG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="6kO-DA-m0H" id="VxO-a1-39E"/>
+                        <outlet property="nameLabel" destination="wdB-Ky-c5r" id="1qz-Q3-9Zs"/>
+                        <outlet property="profileImageView" destination="GOd-Lu-ZBx" id="TTR-rs-Xqe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ij-Qx-EHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="405" y="-547"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

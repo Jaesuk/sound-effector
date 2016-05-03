@@ -15,10 +15,28 @@ protocol LoginManagerIsSessionAliveDelegate {
     func isSessionAliveFalse()
 }
 
+class LoginUsingFacebookConfirmingInfo {
+    // MARK: Properties
+    var name: String
+    var email: String
+    var providerId: Int
+    var providerUserId: String
+    var csrfToken: String
+
+    // MARK: Initialization
+    init(name: String, email: String, providerId: Int, providerUserId: String, csrfToken: String) {
+        self.name = name
+        self.email = email
+        self.providerId = providerId
+        self.providerUserId = providerUserId
+        self.csrfToken = csrfToken
+    }
+}
+
 protocol LoginManagerLoginUsingFacebookDelegate {
     func loginUsingFacebookSuccess()
 
-    func loginUsingFacebookConfirmingNeeded()
+    func loginUsingFacebookConfirmingNeeded(confirmingInfo: LoginUsingFacebookConfirmingInfo!)
 
     func loginUsingFacebookFailure()
 }
@@ -80,7 +98,7 @@ class LoginManager {
     }
 
     internal func loginUsingFacebook(delegate: LoginManagerLoginUsingFacebookDelegate!,
-                                   fromViewController: UIViewController!) {
+                                     fromViewController: UIViewController!) {
         facebookSDKLoginManager.logInWithReadPermissions(["public_profile", "email"],
                 fromViewController: fromViewController,
                 handler: {
@@ -123,7 +141,15 @@ class LoginManager {
                                     delegate.loginUsingFacebookSuccess()
                                 case 202:
                                     print("- Confirming to join needed.")
-                                    delegate.loginUsingFacebookConfirmingNeeded()
+                                    let result = JSON as! NSDictionary
+                                    let creatingUserJson = result["creating-user"] as! NSDictionary
+                                    let csrfToken = response.response!.allHeaderFields["x-csrf-token"] as! String
+                                    let confirmingInfo = LoginUsingFacebookConfirmingInfo(name: creatingUserJson["name"] as! String,
+                                            email: creatingUserJson["email"] as! String,
+                                            providerId: creatingUserJson["provider-id"] as! Int,
+                                            providerUserId: creatingUserJson["id"] as! String,
+                                            csrfToken: csrfToken)
+                                    delegate.loginUsingFacebookConfirmingNeeded(confirmingInfo)
                                 default:
                                     print("- Login... no way.")
                                     delegate.loginUsingFacebookFailure()

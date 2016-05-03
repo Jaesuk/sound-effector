@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6CDDAEB8882A346F801E7309 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9258D483896F0C28635271 /* Pods.framework */; };
+		BA68414C518FB44693AC77F5 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA684699FFEB9CEF524961BA /* JoinViewController.swift */; };
 		BA684262C19CB885A7BABC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6840D64DB9EEB21286FAC4 /* AppDelegate.swift */; };
 		BA68451E88A5E0E025F3DA7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA684BEB1A5CEB0C1AA29195 /* ViewController.swift */; };
 		BA68460AE1B498FAD4F1FF37 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA684AF0038C358BA4C0F720 /* LoginViewController.swift */; };
@@ -48,6 +49,7 @@
 		BA6843F49BC54BEFB8C8D360 /* sound_effectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sound_effectorUITests.swift; sourceTree = "<group>"; };
 		BA68445CF6FC3A969121C3B5 /* SoundEffectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffectTableViewCell.swift; sourceTree = "<group>"; };
 		BA68446EC03D317AE3055F60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA684699FFEB9CEF524961BA /* JoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		BA68476B9BB340583DC2BC89 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		BA68488D36A8B7BD57EB35EE /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		BA68491A2495DE42BF59421C /* sound_effectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sound_effectorTests.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				BA68488D36A8B7BD57EB35EE /* SoundEffect.swift */,
 				BA68476B9BB340583DC2BC89 /* LoginManager.swift */,
 				BA684AF0038C358BA4C0F720 /* LoginViewController.swift */,
+				BA684699FFEB9CEF524961BA /* JoinViewController.swift */,
 			);
 			path = "sound-effector";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				BA684A3A2B062CC58CC97D8D /* SoundEffect.swift in Sources */,
 				BA684A81F24AD027C22E84D9 /* LoginManager.swift in Sources */,
 				BA68460AE1B498FAD4F1FF37 /* LoginViewController.swift in Sources */,
+				BA68414C518FB44693AC77F5 /* JoinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

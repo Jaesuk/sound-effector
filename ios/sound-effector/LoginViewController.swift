@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import PKHUD
 
 class LoginViewController: UIViewController, LoginManagerLoginUsingFacebookDelegate {
     @IBAction func facebookButtonPressed(sender: AnyObject) {
@@ -16,11 +17,16 @@ class LoginViewController: UIViewController, LoginManagerLoginUsingFacebookDeleg
         presentViewController(viewController, animated: true, completion: nil)
     }
 
-    func loginUsingFacebookConfirmingNeeded() {
-
+    func loginUsingFacebookConfirmingNeeded(confirmingInfo: LoginUsingFacebookConfirmingInfo!) {
+        let joinViewController = storyboard!.instantiateViewControllerWithIdentifier("joinViewController") as! JoinViewController
+        joinViewController.confirmingInfo = confirmingInfo
+        presentViewController(joinViewController, animated: true, completion: nil)
     }
 
     func loginUsingFacebookFailure() {
-
+        HUD.flash(.Label("Facebook login failed..."), delay: 0.3) {
+            _ in
+            print("Facebook login failed...")
+        }
     }
 }
